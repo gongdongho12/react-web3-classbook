@@ -1,4 +1,4 @@
-# React Ainize Boilerplate
+# React Web3 Classbook
 
 ## React Boilerplate
 

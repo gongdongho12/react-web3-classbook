@@ -82,6 +82,18 @@
     "no-param-reassign": "off",
     "no-prototype-builtins": "off",
     "prefer-template": "off",
-    "array-callback-return": "off"
+    "array-callback-return": "off",
+    "ban-ts-comment": "off",
+    "dot-notation": "off",
+    "no-console": "off",
+    "no-tabs": "off",
+    "camelcase": "off",
+    "object-curly-newline": "off",
+    "radix": "off",
+    "no-useless-return": "off",
+    "consistent-return": "off",
+    "lines-between-class-members": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "react/jsx-no-target-blank": ["off", {"enforceDynamicLinks": false}]
   }
 }

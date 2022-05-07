@@ -4,13 +4,13 @@ import { useIntl } from "react-intl";
 import { routerMeta } from 'meta';
 
 import {
-  UserOutlined,
-  LaptopOutlined,
-  NotificationOutlined,
+  UserOutlined
 } from "@ant-design/icons";
 import { Link, useLocation } from "react-router-dom";
 import LanguageSelector from "components/LanguageSelector";
 import { assignRouteArrayProps } from "utils";
+import PopOver from "components/PopOver";
+import Web3Account from "components/Web3Account";
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -85,6 +85,19 @@ const DefaultLayout: FunctionComponent<IDefaultLayoutProps> = (props) => {
           <Menu.Item key="language-selector" disabled style={{ opacity: 1, marginLeft: 'auto' }}>
             <LanguageSelector />
           </Menu.Item>
+          <div style={{ opacity: 1, order: defaultMenus.length + 2 }}>
+            <PopOver
+              buttonProps={
+                {
+                  placement: "bottomLeft",
+                  title: "Account",
+                  content: <Web3Account />,
+                } as any
+              }
+            >
+              <UserOutlined />
+            </PopOver>
+          </div>
         </Menu>
       </Header>
       <Layout>
