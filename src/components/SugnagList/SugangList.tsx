@@ -1,7 +1,10 @@
+import { ApiFilled } from '@ant-design/icons';
 import { Button } from 'antd';
+import { web3 as web3API } from 'api';
 import SugangCard from 'components/SugangCard';
 import { sugang, SUGANG_STATUS } from 'containers/Sugang/meta';
 import React, { FunctionComponent, useCallback } from 'react';
+import detectCurrentProvider from 'utils/detectCurrentProvider';
 import { CardListWrapper } from './SugangListStyle';
 
 interface ISugangListProps {
@@ -20,6 +23,12 @@ const getStatusString = (status) => {
 }
 
 const SugangList: FunctionComponent<ISugangListProps> = (props) => {
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  const postSugang = useCallback(async () => {
+    
+  }, [])
+  
+
   const sugangRender = useCallback(({ id, name, professor, status }) => {
     return <div style={{ display: 'flex', flexFlow: 'column', alignItems: 'start', height: '90px' }}>
       <div>
@@ -39,7 +48,7 @@ const SugangList: FunctionComponent<ISugangListProps> = (props) => {
         </span>
       </div>
       {
-        status === SUGANG_STATUS.NOT && <Button style={{ width: '100%', marginTop: 5 }}>
+        status === SUGANG_STATUS.NOT && <Button style={{ width: '100%', marginTop: 5 }} onClick={() => postSugang()}>
           수강신청
         </Button>
       }
