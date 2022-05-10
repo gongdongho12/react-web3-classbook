@@ -27,6 +27,8 @@ const Home: FunctionComponent<ICardViewProps> = (props) => {
           우측 상단의 <UserOutlined /> 버튼을 클릭하세요
         </Paragraph>
       </Typography>
+      <Title level={4}>시연영상</Title>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/ggXF6F8Vauo" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
     </DefaultLayout>
   );
 };

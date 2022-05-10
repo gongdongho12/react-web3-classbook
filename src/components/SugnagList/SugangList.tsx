@@ -1,4 +1,5 @@
-import { ApiFilled, SyncOutlined } from '@ant-design/icons';
+/* eslint-disable react/no-unknown-property */
+import { SyncOutlined } from '@ant-design/icons';
 import { useWeb3React } from '@web3-react/core';
 import { Button } from 'antd';
 import { Contract } from "@ethersproject/contracts";

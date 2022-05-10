@@ -132,7 +132,7 @@ const DefaultLayout: FunctionComponent<IDefaultLayoutProps> = (props) => {
             </SubMenu>
           </Menu>
         </Sider> */}
-        <Layout style={{ padding: "0 24px 24px" }}>
+        <Layout style={{ padding: "0 24px 24px", overflow: 'auto' }}>
           {/* <Breadcrumb style={{ margin: "16px 0" }}>
             {pathDom}
           </Breadcrumb> */}
