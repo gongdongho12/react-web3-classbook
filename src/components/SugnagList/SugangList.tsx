@@ -4,9 +4,11 @@ import { Button } from 'antd';
 import { Contract } from "@ethersproject/contracts";
 import SugangCard from 'components/SugangCard';
 import { sugang } from 'containers/Vote/meta';
+import { Pie } from '@ant-design/plots';
 import React, { FunctionComponent, useCallback, useEffect, useMemo, useState } from 'react';
 import { CardListWrapper } from './SugangListStyle';
 import { abi, contractAddress } from './contract';
+import FlexCenter from '../FlexCenter/index';
 
 interface ISugangListProps {
 }
@@ -95,14 +97,44 @@ const SugangList: FunctionComponent<ISugangListProps> = (props) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sugangRender, loading])
 
+  const config = useMemo<any>(() => ({
+    appendPadding: 10,
+    data: [{
+      type: '이상환',
+      value: lee
+    }, {
+      type: '김영만',
+      value: kim
+    }],
+    angleField: 'value',
+    colorField: 'type',
+    radius: 0.9,
+    label: {
+      type: 'inner',
+      offset: '-30%',
+      content: ({ percent }) => `${(percent * 100).toFixed(0)}%`,
+      style: {
+        fontSize: 14,
+        textAlign: 'center',
+      },
+    },
+    interactions: [
+      {
+        type: 'element-active',
+      },
+    ],
+  }), [kim, lee])
+
   return <div>
-    <Button type={"primary"} ghost onClick={() => refresh()} >
+    <Button type={"primary"} style={{ margin: 5 }} ghost onClick={() => refresh()} >
       <SyncOutlined />
       새로고침
     </Button>
     <CardListWrapper>
       {render}
     </CardListWrapper>
+      {(kim && lee) && <FlexCenter style={{ background: 'white', margin: 5 }}><Pie {...config} /></FlexCenter>}
+
   </div>
 };
 

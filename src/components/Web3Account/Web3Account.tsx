@@ -31,20 +31,30 @@ const Web3Account: FunctionComponent<IWeb3AccountProps> = (props) => {
     // console.log('balance', balance)
   }, [library, account]);
   
-  return (
-		<div>
-			<div className="user">
-				<p>Account: {account}</p>
-				<p>ChainId: {chainId}</p>
-        <p>Balance: {balance} ETH</p>
-			</div>
-			<div className="connect">
-				<Button type="primary" onClick={handleConnect}>
-					{active ? "disconnect" : "connect"}
-				</Button>
-			</div>
-		</div>
-  );
+  if (!active) {
+    return (
+      <div>
+        <Button type="primary" onClick={handleConnect}>
+          {active ? "disconnect" : "connect"}
+        </Button>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <div className="user">
+          <p>Account: {account}</p>
+          <p>ChainId: {chainId}</p>
+          <p>Balance: {balance} ETH</p>
+        </div>
+        <div className="connect">
+          <Button type="primary" onClick={handleConnect}>
+            {active ? "disconnect" : "connect"}
+          </Button>
+        </div>
+      </div>
+    );
+  }
 };
 
 export default Web3Account;

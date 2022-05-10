@@ -133,9 +133,9 @@ const DefaultLayout: FunctionComponent<IDefaultLayoutProps> = (props) => {
           </Menu>
         </Sider> */}
         <Layout style={{ padding: "0 24px 24px" }}>
-          <Breadcrumb style={{ margin: "16px 0" }}>
+          {/* <Breadcrumb style={{ margin: "16px 0" }}>
             {pathDom}
-          </Breadcrumb>
+          </Breadcrumb> */}
           <Content
             className="site-layout-background"
             style={{
