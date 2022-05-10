@@ -6,8 +6,8 @@ export type RouterMetaTypes = { [key: string] : RouteMetaType | RouteMetaType[] 
 
 const routerMeta: RouterMetaTypes = {
   Home: { path: '/' },
-  About: ['/about', '/test'],
-  Sugang: ['/sugang'],
+  // About: ['/about', '/test'],
+  Vote: ['/vote'],
 }
 
 export default routerMeta

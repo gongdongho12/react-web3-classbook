@@ -12,6 +12,7 @@ const Web3Account: FunctionComponent<IWeb3AccountProps> = (props) => {
   const handleConnect = useCallback(() => {
     if (active) {
       deactivate();
+      setBalance(0)
       return;
     }
     activate(injected, (error) => {

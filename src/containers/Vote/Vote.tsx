@@ -5,10 +5,10 @@ import SugangList from 'components/SugnagList';
 interface ISugnagProps {
 }
 
-const Sugnag: FunctionComponent<ISugnagProps> = (props) => {
+const Vote: FunctionComponent<ISugnagProps> = (props) => {
   return <DefaultLayout>
     <SugangList />
   </DefaultLayout>
 };
 
-export default Sugnag;
+export default Vote;

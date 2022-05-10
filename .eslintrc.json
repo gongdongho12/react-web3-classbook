@@ -93,6 +93,7 @@
     "no-useless-return": "off",
     "consistent-return": "off",
     "lines-between-class-members": "off",
+    "no-nested-ternary": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "react/jsx-no-target-blank": ["off", {"enforceDynamicLinks": false}]
   }

@@ -1,31 +1,103 @@
-export const contractAddress = "0x5f0799317c4ef1f7347ff04721ae023540744959"
+export const contractAddress = "0x320C0320516839BdBb296a96e0cE6E1E8cb0C976"
 export const abi = [
   {
-    constant: false,
     inputs: [
       {
-        name: "x",
-        type: "uint256"
+        internalType: "string[]",
+        name: "_candidateNames",
+        type: "string[]"
       }
     ],
-    name: "set",
-    outputs: [],
-    payable: false,
-    type: "function",
-    stateMutability: "nonpayable"
+    stateMutability: "nonpayable",
+    type: "constructor"
   },
   {
-    constant: true,
-    inputs: [],
-    name: "get",
-    outputs: [
+    inputs: [
       {
-        name: "retVal",
+        internalType: "uint256",
+        name: "",
         type: "uint256"
       }
     ],
-    payable: false,
-    type: "function",
-    stateMutability: "view"
+    name: "candidateList",
+    outputs: [
+      {
+        internalType: "string",
+        name: "",
+        type: "string"
+      }
+    ],
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    inputs: [
+      {
+        internalType: "string",
+        name: "_name",
+        type: "string"
+      }
+    ],
+    name: "totalVotesFor",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+      }
+    ],
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    inputs: [
+      {
+        internalType: "string",
+        name: "_name",
+        type: "string"
+      }
+    ],
+    name: "validCandidate",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool"
+      }
+    ],
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    inputs: [
+      {
+        internalType: "string",
+        name: "_candidate",
+        type: "string"
+      }
+    ],
+    name: "vodeForCandiodate",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function"
+  },
+  {
+    inputs: [
+      {
+        internalType: "string",
+        name: "",
+        type: "string"
+      }
+    ],
+    name: "voteReceived",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256"
+      }
+    ],
+    stateMutability: "view",
+    type: "function"
   }
 ]
