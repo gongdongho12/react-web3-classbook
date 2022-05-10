@@ -23,11 +23,11 @@ const Web3Account: FunctionComponent<IWeb3AccountProps> = (props) => {
 
   useEffect(() => {
     console.log('library', library, 'account', account)
-    library?.getBalance(account).then(res => {
-      console.log('balance', res)
+    library?.getBalance(account).then(({ _hex }) => {
+      console.log('balance', _hex)
+      setBalance(_hex / 1e18)
     })
     // console.log('balance', balance)
-    // setBalance(balance / 1e18)
   }, [library, account]);
   
   return (
@@ -35,7 +35,7 @@ const Web3Account: FunctionComponent<IWeb3AccountProps> = (props) => {
 			<div className="user">
 				<p>Account: {account}</p>
 				<p>ChainId: {chainId}</p>
-        <p>Balance: {balance}</p>
+        <p>Balance: {balance} ETH</p>
 			</div>
 			<div className="connect">
 				<Button type="primary" onClick={handleConnect}>

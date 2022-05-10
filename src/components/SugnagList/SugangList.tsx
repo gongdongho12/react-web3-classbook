@@ -1,11 +1,15 @@
 import { ApiFilled } from '@ant-design/icons';
+import { useWeb3React } from '@web3-react/core';
 import { Button } from 'antd';
 import { web3 as web3API } from 'api';
+import Web3 from 'web3';
+import { Contract } from "@ethersproject/contracts";
 import SugangCard from 'components/SugangCard';
 import { sugang, SUGANG_STATUS } from 'containers/Sugang/meta';
 import React, { FunctionComponent, useCallback } from 'react';
 import detectCurrentProvider from 'utils/detectCurrentProvider';
 import { CardListWrapper } from './SugangListStyle';
+import { abi, contractAddress } from './contract';
 
 interface ISugangListProps {
 }
@@ -23,12 +27,22 @@ const getStatusString = (status) => {
 }
 
 const SugangList: FunctionComponent<ISugangListProps> = (props) => {
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  const postSugang = useCallback(async () => {
-    
-  }, [])
-  
+  const { library, chainId, account, active, activate, deactivate } = useWeb3React();
 
+  const postSugang = useCallback(() => {
+    console.log('test', active)
+    if (active) {
+      const SimpleStorage = new Contract(contractAddress, abi, library.getSigner());
+      // SimpleStorage.set(23).then((res) => {
+      //   console.log('set', res)
+      // })
+
+      SimpleStorage.get().then((res: any) => {
+        console.log('get', parseInt(res?._hex, 16))
+      })
+    }
+  }, [active, library])
+  
   const sugangRender = useCallback(({ id, name, professor, status }) => {
     return <div style={{ display: 'flex', flexFlow: 'column', alignItems: 'start', height: '90px' }}>
       <div>
@@ -58,7 +72,7 @@ const SugangList: FunctionComponent<ISugangListProps> = (props) => {
         </Button>
       }
     </div>
-  }, [])
+  }, [postSugang])
 
   return <CardListWrapper>
     {
